@@ -7,24 +7,50 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Range(0,10)]
     float speed = 5.0f;
     [SerializeField]
-    float rotationSpeed = 5.0f;
+    float gravity = -9.81f;
+    [SerializeField]
+    float jumpHeight = 2f;
 
+    Vector3 velocity;
+
+    [SerializeField]
+    Transform groundCheck;
+    [SerializeField]
+    float groundDistance = 0.4f;
+    [SerializeField]
+    LayerMask groundMask;
+    bool isGrounded;
+
+    [SerializeField]
+    CharacterController _characterController;
 
 
     private void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y");
+        if(isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
 
-        Vector3 direction = new Vector3(horizontal,0,vertical);
-        transform.Translate(direction*Time.deltaTime*speed);
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
 
-        transform.Rotate(0, mouseX*Time.deltaTime*rotationSpeed, 0);
+        Vector3 move = transform.right * x + transform.forward * z;
 
-        Debug.Log(mouseX);
+        _characterController.Move(move*speed*Time.deltaTime);
+
+        velocity.y += gravity * Time.deltaTime;
+
+        _characterController.Move(velocity * Time.deltaTime);
+
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+        
     }
 }
 
