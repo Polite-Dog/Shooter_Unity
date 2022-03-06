@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField, Range(0,10)]
+    /*[SerializeField, Range(0,10)]
     float speed = 5.0f;
     [SerializeField]
     float gravity = -9.81f;
@@ -22,12 +22,12 @@ public class PlayerController : MonoBehaviour
     bool isGrounded;
 
     [SerializeField]
-    CharacterController _characterController;
+    CharacterController _characterController;*/
 
 
     private void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        /*isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if(isGrounded && velocity.y < 0)
         {
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
+        }*/
         
     }
 }
