@@ -2113,3 +2113,4 @@ Received Import Request.
   path: Assets/Prefabs/Bullet.prefab
   artifactKey: Guid(6dd2e3a893b32824db01d6a96aa658ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Prefabs/Bullet.prefab using Guid(6dd2e3a893b32824db01d6a96aa658ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67b8bb0d642939d9cd3ca2ecc36990a4') in 0.506065 seconds 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
