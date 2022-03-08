@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Enemy
   - Generator
+  - 2A
+  - 2B
+  - 1A
+  - 1B
   layers:
   - Default
   - TransparentFX
